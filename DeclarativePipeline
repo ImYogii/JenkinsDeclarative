@@ -29,7 +29,7 @@ pipeline{
                      }
                    }
               stage('Integration Testing'){
-                  agent any{
+                  'agent any' {
                       docker{
                       reuseNode false
                       image 'ubantu'
