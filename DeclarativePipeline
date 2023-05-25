@@ -21,5 +21,26 @@ pipeline{
                echo 'Hello'
                }
             }
+      stage('Four'){
+          parallel{
+              stage('Unit Testing'){
+                  steps{
+                     echo 'Running Unit Testing'
+                     }
+                   }
+              stage('Integration Testing'){
+                  agent{
+                      docker{
+                      reuseNode false
+                      image 'ubantu'
+                      }
+                     }
+                   steps{
+                       echo 'Running Integration testing'
+                       }
+                      }
+                     }
+                    }
+                    
        }
      }
